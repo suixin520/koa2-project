@@ -1,0 +1,26 @@
+{
+  "name": "koa2-project",
+  "version": "1.0.0",
+  "description": "koa2-project",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "node server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suixin520/koa2-project.git"
+  },
+  "keywords": [
+    "koa2"
+  ],
+  "author": "suixin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/suixin520/koa2-project/issues"
+  },
+  "homepage": "https://github.com/suixin520/koa2-project#readme",
+  "dependencies": {
+    "koa": "^2.11.0"
+  }
+}
