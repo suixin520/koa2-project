@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/suixin520/koa2-project#readme",
   "dependencies": {
-    "koa": "^2.11.0"
+    "ejs": "^3.0.1",
+    "koa": "^2.11.0",
+    "pug": "^2.0.4"
   }
 }
