@@ -1,8 +1,9 @@
 const Koa = require('koa')
 const app = new Koa()
+const { normal } = require('./tpl')
 
 app.use(async (ctx, next) => {
-  ctx.body = '初始化项目'
+  ctx.body = normal
   await next()
 })
 
