@@ -2,7 +2,7 @@ const cp = require('child_process')
 const { resolve } = require('path')
 
 ;(async () => {
-  const script = resolve(__dirname, '../crawler/trailer-list.js')
+  const script = resolve(__dirname, '../crawler/trailer-douban.js')
   const child = cp.fork(script, [])
 
   let invoked = false
