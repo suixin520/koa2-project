@@ -1,4 +1,4 @@
-// 本段代码为爬取孟坤博客，仅供学习使用，请不要恶意访问，如给作者造成不遍，请联系Me删除代码，695568126@qq.com
+// 本段代码为爬取豆瓣电影API，仅供学习使用，请不要恶意访问，如给作者造成不遍，请联系Me删除代码，695568126@qq.com
 const puppeteer = require('puppeteer')
 
 const URL = 'https://movie.douban.com/tag/#/'
