@@ -5,7 +5,7 @@ const db = `yours mongodb database`
 
 mongoose.Promise = global.Promise
 
-const maxConnectTimes = 5
+let maxConnectTimes = 5
 
 exports.initSchemas = () => {
   glob.sync(resolve(__dirname, './schema', '**/*.js')).forEach(require)
