@@ -1,9 +1,18 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const Mixd = mongoose.Types.Mixd
+const { ObjectId, Mixed } = Schema.Types
 
 const movieSchema = new Schema({
-  doubanId: String, // 电影标识
+  doubanId: {
+    unique: true,
+    type: String
+  }, // 电影标识
+
+  category: [{
+    type: ObjectId,
+    ref: 'Category'
+  }],
+
   rate: Number, // 评分
   title: String, // 标题
   summary: String, // 简介
@@ -17,7 +26,7 @@ const movieSchema = new Schema({
 
   rawTitle: String, // 原标题
   movieTypes: [String], // 电影类型，用数组表示，数组中每个元素是String类型
-  pubdate: Mixd, // 发布日期，Mixd为mongoose中特有类型，可以是任意类型
+  pubdate: Mixed, // 发布日期，Mixd为mongoose中特有类型，可以是任意类型
   year: Number, // 上映年份
 
   tags: [String], // 标签
@@ -32,7 +41,15 @@ const movieSchema = new Schema({
       default: Date.now()
     }
   }
+})
 
+movieSchema.pre('save', function (next) { // 数据存储前先将创建时间和更新时间存入
+  if (this.isNew) {
+    this.meta.createdAt = this.meta.updatedAt = Date.now()
+  } else {
+    this.meta.updatedAt = Date.now()
+  }
+  next()
 })
 
 mongoose.model('Movie', movieSchema)

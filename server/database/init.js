@@ -1,9 +1,30 @@
 const mongoose = require('mongoose')
+const glob = require('glob')
+const { resolve } = require('path')
 const db = `yours mongodb database`
 
 mongoose.Promise = global.Promise
 
 const maxConnectTimes = 5
+
+exports.initSchemas = () => {
+  glob.sync(resolve(__dirname, './schema', '**/*.js')).forEach(require)
+}
+
+exports.initAdmin = async () => {
+  const User = mongoose.model('User')
+  const user = await User.findOne({
+    username: 'suixin'
+  })
+  if (!user) {
+    const admin = new User({
+      username: 'suixin',
+      email: 'suixin@11.com',
+      password: '123456'
+    })
+    await admin.save()
+  }
+}
 
 exports.connect = () => {
 
@@ -30,11 +51,11 @@ exports.connect = () => {
     mongoose.connection.once('open', () => {
       console.log('数据库连接成功！')
 
-      const Dog = mongoose.model('Dog', { name: String })
-      const dog1 = new Dog({ name: '阿尔法猫' })
-      dog1.save().then(() => {
-        console.log('存储成功！')
-      })
+      // const Dog = mongoose.model('Dog', { name: String })
+      // const dog1 = new Dog({ name: '阿尔法猫' })
+      // dog1.save().then(() => {
+      //   console.log('存储成功！')
+      // })
       resolve()
     })
   })
