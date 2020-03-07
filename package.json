@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node server/index.js",
     "test": "rimraf parcel/dist && parcel build parcel/index.html --no-cache -d parcel/dist --public-url /dist/",
-    "build": "rimraf dist && parcel build src/index.html --no-cache -d dist --public-url /"
+    "build": "rimraf dist && parcel build src/index.html --no-cache -d dist --public-url /",
+    "start": "rimraf dist && rimraf .cache && NODE_ENV=development nodemon ./start.js"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
     "mongoose": "^5.9.3",
     "nanoid": "^2.1.11",
     "node-sass": "^4.13.1",
+    "nodemon": "^2.0.2",
     "parcel-bundler": "^1.12.4",
     "pug": "^2.0.4",
     "puppeteer": "^2.1.1",
