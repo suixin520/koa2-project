@@ -1,9 +1,16 @@
-import './assets/common.scss'
 
-function changeTitle () {
-  window.$('#app').html('Parcel 打包包')
-}
+import React from 'react'
+import { render } from 'react-dom'
+import {
+  BrowserRouter
+} from 'react-router-dom'
+import App from './app'
 
-setTimeout(function () {
-  changeTitle()
-}, 2000)
+const rootElement = document.getElementById('app')
+
+render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  rootElement
+)
