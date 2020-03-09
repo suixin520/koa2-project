@@ -14,13 +14,14 @@ exports.initSchemas = () => {
 exports.initAdmin = async () => {
   const User = mongoose.model('User')
   const user = await User.findOne({
-    username: 'suixin'
+    username: 'suixin1'
   })
   if (!user) {
     const admin = new User({
-      username: 'suixin',
-      email: 'suixin@11.com',
-      password: '123456'
+      username: 'suixin1',
+      email: 'suixin@111.com',
+      password: '123456',
+      role: 'admin'
     })
     await admin.save()
   }

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const Movie = mongoose.model('Movie')
+const User = mongoose.model('User')
 
 export const checkPassword = async (email, password) => {
   let match = false
