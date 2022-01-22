@@ -47,7 +47,7 @@
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "mongoose": "^5.9.3",
-    "nanoid": "^2.1.11",
+    "nanoid": "^3.1.31",
     "node-sass": "^4.13.1",
     "nodemon": "^2.0.2",
     "parcel-bundler": "^1.12.4",
